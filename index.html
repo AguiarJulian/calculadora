@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Calculadora</title>
+</head>
+<body>
+<section>
+    <div id="calculadora">
+        <div id="disp">
+        <div id="display1"></div>
+        <div id="display2"></div>
+        </div>        
+        <div id="numer">
+            <button id="num7" onclick="num(7)">7</button>
+            <button id="num8" onclick="num(8)">8</button>
+            <button id="num9" onclick="num(9)">9</button>
+            <button id="num4" onclick="num(4)">4</button>
+            <button id="num5" onclick="num(5)">5</button>
+            <button id="num6" onclick="num(6)">6</button>
+            <button id="num1" onclick="num(1)">1</button>
+            <button id="num2" onclick="num(2)">2</button>
+            <button id="num3" onclick="num(3)">3</button>
+            <button id="num0" onclick="num(0)">0</button>
+            <button id="coma" onclick="num('.')" >,</button>
+        </div>
+        <div id="operac">
+            <button id="limpiar" onclick="limpiar()">C</button>
+            <button id="borrar" onclick="borrar()">←</button>
+            <button id="multiplicar" onclick="operacion('*')">*</button>
+            <button id="dividir" onclick="operacion('/')">÷</button>
+            <button id="sumar" onclick="operacion('+')">+</button>
+            <button id="restar" onclick="operacion('-')">-</button>
+            <button id="igual" onclick="igual()">=</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    var valor =''
+       var elemento = document.getElementById('display1');
+       elemento.innerText = valor;
+   
+   function num(value) {
+     var display1 = document.getElementById('display1');
+     display1.innerText += value;
+   }
+   
+   function operacion(value) {
+     var display1 = document.getElementById('display1');
+     display1.innerText += value;
+   }
+   
+   function limpiar() {
+     var display1 = document.getElementById('display1');
+     var display2 = document.getElementById('display2');
+     display1.innerText = '';
+     display2.innerText = '';
+   }
+   
+   function borrar() {
+     var display1 = document.getElementById('display1');
+     display1.innerText = display1.innerText.slice(0, -1);
+   }
+   
+   function igual() {
+     var display1 = document.getElementById('display1');
+     var display2 = document.getElementById('display2');
+     var total = display1.innerText;
+     var resultado = eval(total);
+     display2.innerText = resultado;
+   }
+   
+   </script>
+
+
+
+
+</body>
+</html>
